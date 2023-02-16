@@ -2,7 +2,7 @@
 /*
  * main - print a line of ode using puts
  *
- * Return; 0
+ * Return: 0
 */
 int main(void)
 {
