@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * Main - print out sizes of data types in c
+ * main - print out sizes of data types in c
  * code by Olisajioke
  * Return: 0
 */
