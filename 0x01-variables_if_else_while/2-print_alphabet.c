@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 /**
  *main - Entry point
  *code by Olisajioke
@@ -10,11 +11,12 @@ int main(void)
 	char c;
 
 	c = '#';
-	while
-		(c <= 'z') {
-			putchar(c);
-			c++;
-		}
+	while (c <= 'z')
+	{
+		putchar(c);
+		c++;
+	}
+
 	putchar('\n');
 	return (0);
 }
