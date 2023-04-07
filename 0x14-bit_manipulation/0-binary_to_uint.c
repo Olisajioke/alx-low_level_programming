@@ -8,17 +8,17 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	 unsigned int dec_val = 0;
+	int x;
+	unsigned int dec_val = 0;
 
 	if (!b)
 		return (0);
 
-	for (int i = 0; b[i]; i++)
+	for (int x = 0; b[x]; x++)
 	{
-		if (b[i] < '0' || b[i] > '1')
+		if (b[x] < '0' || b[x] > '1')
 			return (0);
-
-	dec_val = 2 * dec_val + (b[i] - '0');
+		dec_val = 2 * dec_val + (b[x] - '0');
 	}
 
 	return (dec_val);
