@@ -4,61 +4,62 @@
 #include <string.h>
 
 /**
- *checkNum - checks if a string contains only digits
- *@str: string to check
- *
- *Return: 1 if string contains only digits, 0 otherwise
- */
+*variable_count - check if the string contains only integers
+*@str: array of characters
+*Return: 1 if the string contains only integers, 0 otherwise
+*/
 
-int checkNum(char *str)
+int variable_count(char str)
 {
-unsigned int count;
-count = 0;
-while (count < strlen(str))
-{
-	if (!isdigit(str[count]))
-		return (0);
+/*Declaring variables */
+unsigned int num;
 
-	count++;
+for (num = 0; num < strlen(str); num++) /* count string */
+{
+if (!isdigit(str[num])) /*check if str contains digit*/
+{
+return (0);
+}
 }
 return (1);
 }
-/**
- *convertToInt - converts a string to an integer
- *@str: string to convert
- *
- *Return: converted integer value
- */
-int convertToInt(char *str)
-{
-return (atoi(str));
-}
 
 /**
- *main - entry point of the program
- *@argc: number of command line arguments
- *@argv: array of command line arguments
- *Return: 0 on success, 1 on error
- */
+*main - Print the name of the program
+*@argc: Count of arguments
+*@argv: Argument vector
+*Return: Always 0 (Success)
+*/
 
-int main(int argc, char *argv[])
+int main(int argc, char argv[])
 {
-int count;
-int num;
+/* Declaring variables */
+int integer;
+int change_to_int;
 int sum = 0;
-for (count = 1; count < argc; count++)
+
+integer = 1;
+while (integer < argc) /* Goes through the whole array*/
 {
-	if (checkNum(argv[count]))
-	{
-		num = convertToInt(argv[count]);
-		sum += num;
-	} else
-	{
-		printf("Error\n");
-		return (1);
-	}
+if (variable_count(argv[integer]))
+{
+change_to_int = atoi(argv[integer]);
+sum += change_to_int;
+}
+else /*Condition if one of the numbers contains symbols that are not digits */
+{
+puts("Error");
+return (1);
+}
+integer++;
 }
 
-printf("%d\n", sum);
+printf("%d\n", sum); /* Print sum */
 
 return (0);
+}
+integer++;
+}
+printf("%d\n", sum); /* Print sum */
+return (0);
+}
