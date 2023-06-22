@@ -5,51 +5,46 @@
 /**
  * print_all - prints anything
  * @format: list of types of arguments passed to the function
- *
- * Description: This function prints values based on the provided format.
- *		The format string specifies the types of arguments.
- *		Supported types: 'c' (char), 'i' (int), 'f' (float), 's' (char *)
  */
 void print_all(const char * const format, ...)
 {
-	int i = 0;
-	char *str, *sep = "";
+	int x = 0;
+	char *ptr, *strn = "";
 
-	va_list list;
+	va_list count;
 
-	va_start(list, format);
+	va_start(count, format);
 
-	if (format != NULL)
+	if (format)
 	{
-		while (format[i] != '\0')
+		while (format[x])
 		{
-			if (format[i] == 'c')
+			switch (format[x])
 			{
-				printf("%s%c", sep, va_arg(list, int));
+				case 'c':
+					printf("%s%c", strn, va_arg(count, int));
+					break;
+				case 'i':
+					printf("%s%d", strn, va_arg(count, int));
+					break;
+				case 'f':
+					printf("%s%f", strn, va_arg(count, double));
+					break;
+				case 's':
+					ptr = va_arg(count, char *);
+					if (!ptr)
+						ptr = "(nil)";
+					printf("%s%s", strn, ptr);
+					break;
+				default:
+					x++;
+					continue;
 			}
-			if (format[i] == 'i')
-			{
-				printf("%s%d", sep, va_arg(list, int));
-			}
-			if (format[i] == 'f')
-			{
-				printf("%s%f", sep, va_arg(list, double));
-			}
-			if (format[i] == 's')
-			{
-				str = va_arg(list, char *);
-				if (str == NULL)
-				{
-					str = "(nil)";
-				}
-				printf("%s%s", sep, str);
-			}
-
-			i++;
-			sep = ",\t";
+			strn = ", ";
+			x++;
 		}
 	}
 
 	printf("\n");
-	va_end(list);
+	va_end(count);
 }
