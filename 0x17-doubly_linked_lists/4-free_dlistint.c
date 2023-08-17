@@ -1,5 +1,3 @@
-#include "lists.h"
-
 /**
  * free_dlistint - frees a dlistint_t list.
  * @head: pointer to head of the list
@@ -8,16 +6,15 @@
 void free_dlistint(dlistint_t *head)
 {
 	if (head == NULL)
-	return;
+		return;
 
-	dlistint_t *current;
-	dlistint_t *next_node;
+	dlistint_t *new_node;
 
-	for (current = head; current->next != NULL; current = next_node)
+	for (; head->next; head = new_node)
 	{
-		next_node = current->next;
-		free(current);
+		new_node = head->next;
+		free(head->prev);
 	}
 
-	free(current);
+	free(head);
 }
