@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Module that defines an island perimeter measuring function."""
+
 
 def island_perimeter(grid):
     """
@@ -17,7 +19,7 @@ def island_perimeter(grid):
     - Grid cells are connected horizontally/vertically (not diagonally)
     - Grid is rectangular, with a width and height not exceeding 100
     - Grid is completely surrounded by water, and there is ohi
-    - The island doesn’t have "lakes" 
+    - The island doesn’t have "lakes"
     """
     if not grid:
         return 0
