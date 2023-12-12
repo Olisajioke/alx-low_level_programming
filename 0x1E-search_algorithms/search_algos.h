@@ -7,8 +7,8 @@
 #include <stdlib.h>
 
 /**
- *
- * @n: Integer
+ * struct listint_s - A structure repping a node in a linked list of int
+ * @n: The integer data stored in the node
  * @index: Index of the node in the list
  * @next: Pointer to the next node
  *
